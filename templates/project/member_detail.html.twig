@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="{{constant('php\\Bootstrap::APP_URL')}}js/common.js"></script>
+  <link href="{{constant('php\\Bootstrap::APP_URL')}}css/stylesheet.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{constant('php\\Bootstrap::APP_URL')}}css/responsive.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <title>メンバー詳細</title>
+ </head>
+
+ <body>
+
+ {% include 'header.html.twig' %}
+
+<div class="contact-form">
+ <h2 class="section-title">メンバー詳細</h2>
+  <form method="post" action="member_list.php">
+   <table>
+    <tr>
+     <th>お名前(氏名)</th>
+     <td>{{dataArr.family_name}} {{dataArr.first_name}}</td>
+    </tr>
+    <tr>
+      <th>お名前(かな)</th>
+      <td>{{dataArr.family_name_kana}} {{dataArr.first_name_kana}}</td>
+    </tr>
+    <tr>
+     <th>性別</th>
+     <td>{% if dataArr.sex == '1' %}男性{% elseif dataArr.sex == '2' %}女性{% endif %}</td>
+    </tr>
+    <tr>
+     <th>生年月日</th>
+     <td>{{dataArr.year}}年 {{dataArr.month}}月 {{dataArr.day}}日</td>
+    </tr>
+    <tr>
+     <th>郵便番号</th>
+     <td>{{dataArr.zip1}} - {{dataArr.zip2}}</td>
+    </tr>
+    <tr>
+     <th>住所</th>
+     <td>{{dataArr.address}}</td>
+    </tr>
+    <tr>
+     <th>メールアドレス</th>
+     <td>{{dataArr.email}}</td>
+    </tr>
+    <tr>
+     <th>電話番号</th>
+     <td>{{dataArr.tel1}} - {{dataArr.tel2}} - {{dataArr.tel3}}</td>
+    </tr>
+    <tr>
+      <th>交通手段</th>
+      <td>
+      {% for val in dataArr.traffic %}
+      {{trafficArr[val]}}<br>
+      {% endfor %}
+      </td>
+    </tr>
+    <tr>
+     <th>備考</th>
+     <td>{{dataArr.contents|nl2br}}</td>
+    </tr>
+   </table>
+ <div>
+   <input type="submit" name="back" value="一覧へ戻る">
+ </div>
+</form>
+</div>
+{% include 'footder.html.twig' %}
+</body>
+
+</html>

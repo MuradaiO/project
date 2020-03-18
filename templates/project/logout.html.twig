@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ログイン画面</title>
+  <link rel="stylesheet" href="{{constant('php\\Bootstrap::APP_URL')}}css/stylesheet.css">
+  <link rel="stylesheet" href="{{constant('php\\Bootstrap::APP_URL')}}css/responsive.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+<body>
+{% include 'header.html.twig' %}
+
+
+<div class="main">
+
+  <div class="contact-form">
+   {% if dataArr.message | length > 0 %}<p>{{dataArr.message}}</p> {% endif %}
+    <h3 class="section-title">登録スタッフ専用ページへはこちら</h3>
+    <form method="post" action="confirm.php" >
+    <p>メールアドレス</p>
+
+    <input type="text" name="email" value="{{dataArr.email}}"><br>
+    {% if errArr.email | length > 0 %}<br><span class="red">{{errArr.email}}</span>{% endif %}
+
+    <p>パスワード</p>
+
+    <input  type="password" name="password" value="{{dataArr.password}}"><br>
+    {% if errArr.password | length > 0 %}<br><span class="red">{{errArr.password}}</span>{% endif %}
+
+    <input class="contact-submit" type="submit" name="login" value="ログイン">
+    {% if errArr.result | length > 0 %}<p style="color:#f00;">{{errArr.result}}</p>{% endif %}
+    <p><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}regist.php">新規登録</a></p>
+
+  </form>
+  </div>
+</div>
+
+{% include 'footer.html.twig' %}
+  </body>
+</html>

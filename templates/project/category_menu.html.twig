@@ -1,0 +1,53 @@
+<div id="work-sub">
+
+<nav>
+ <h2>求人を探す</h2>
+ <ul class="submenu">
+   <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}list.php">全て</a></li>
+     {% for value in cateArr %}
+   <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}list.php?ctg_id={{value.ctg_id}}">
+     {{value.category_name}}</a></li>
+     {% endfor %}
+ </ul>
+</nav>
+
+<nav><h2>
+   <div class="board-user">
+   {% if userData.sex == 1 %}
+   <img src="{{constant('php\\Bootstrap::ENTRY_URL')}}images/male.png" class='icon-user'>
+   {% else %}
+   <img src="{{constant('php\\Bootstrap::ENTRY_URL')}}images/female.png" class='icon-user'>
+   {% endif %}
+   </div>
+   {{hello}}
+   </h2>
+   <ul class="submenu">
+     <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}member_detail.php?mem_id={{userData.mem_id}}">マイページ</a></li>
+     <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}cart.php">保存した求人リスト</a></li>
+     <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}entry_list.php">応募した求人リスト</a></li>
+     <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}f-repo.php">勤怠報告</a></li>
+     <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}logout.php">ログアウトする</a></li>
+   </ul>
+</nav>
+
+
+  <nav>
+   <h2>その他機能</h2>
+    <ul class="submenu">
+     <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}board.php">掲示板</a></li>
+     <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}Personal.php">性格診断</a></li>
+   </ul>
+  </nav>
+
+
+ <nav>
+  <h2>管理者メニュー</h2>
+   <ul class="submenu">
+    <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}add_item.php">案件管理(管理者)</a></li>
+    <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}member_list.php">メンバー表（管理者）</a></li>
+  </ul>
+ </nav>
+
+
+</div>
+</div>

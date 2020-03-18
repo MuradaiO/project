@@ -1,0 +1,353 @@
+
+
+cd /Applications/MAMP/Library/bin/
+./mysql -u root -p
+
+USE test_db;
+CREATE DATABASE test_db DEFAULT CHARACTER SET utf8;
+GRANT ALL PRIVILEGES ON test_db. * TO test_user@'localhost' IDENTIFIED BY 'test_pass' WITH GRANT OPTION;
+USE test_db;
+
+-- phpMyAdmin SQL Dump
+-- version 4.9.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:8889
+-- Generation Time: Mar 08, 2020 at 03:06 AM
+-- Server version: 5.7.26
+-- PHP Version: 7.4.2
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `test_db`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `board`
+--
+
+CREATE TABLE `board` (
+  `board_id` int(11) NOT NULL,
+  `user_id` varchar(50) NOT NULL,
+  `sex` int(2) NOT NULL,
+  `contents` varchar(255) NOT NULL,
+  `email` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `board`
+--
+
+INSERT INTO `board` (`board_id`, `user_id`, `sex`, `contents`, `email`) VALUES
+(1, 'admin', 1, 'rqfa', 'suteado.tamokuteki@gmail.com'),
+(2, 'member', 2, 'lm;m', 'member@gmail.com'),
+(3, 'member', 2, 'kkkkklnlnloohohuohhihhohhkhhhihhhhyyyhyhhhhhkjhkihlhigogiguogugugiogiogiogggkgig;logho;h;ohioihoihlhoihlo;hloho;ihloh;oih;oh;oho;hoiho;h;oho', 'member@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `crt_id` int(10) UNSIGNED NOT NULL,
+  `customer_no` int(10) UNSIGNED NOT NULL,
+  `item_id` int(10) UNSIGNED NOT NULL,
+  `num` tinyint(1) UNSIGNED NOT NULL DEFAULT '1',
+  `delete_flg` tinyint(1) UNSIGNED NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
+CREATE TABLE `category` (
+  `ctg_id` tinyint(3) UNSIGNED NOT NULL,
+  `category_name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`ctg_id`, `category_name`) VALUES
+(1, '花屋'),
+(2, 'ブライダル・葬儀'),
+(3, 'アトリエ・造園'),
+(4, '流通・仲卸(市場)'),
+(5, 'ワークショップ(講師)');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `entry`
+--
+
+CREATE TABLE `entry` (
+  `entry_id` int(11) NOT NULL,
+  `item_id` int(10) UNSIGNED NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `entry_flg` tinyint(3) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `item`
+--
+
+CREATE TABLE `item` (
+  `item_id` int(10) UNSIGNED NOT NULL,
+  `item_name` varchar(100) NOT NULL,
+  `detail` text NOT NULL,
+  `price` decimal(10,1) UNSIGNED NOT NULL,
+  `image` varchar(50) NOT NULL,
+  `ctg_id` tinyint(3) UNSIGNED NOT NULL,
+  `delete_flg` tinyint(5) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `item`
+--
+
+INSERT INTO `item` (`item_id`, `item_name`, `detail`, `price`, `image`, `ctg_id`, `delete_flg`) VALUES
+(1, 'フラワーサロン大村　09:30-18:30', '3月14日(土) 10:00-19:00\r\n職種：ウェディング\r\n最寄駅：白金高輪駅\r\n服装：上下黒のパンツスーツ\r\n備考:\r\nアトリエでの婚礼制作等のお仕事です。', '8200.0', 'zouen.jpg', 3, 4),
+(2, 'ホテルニューオオムラ　10:00-19:00', '02月21日(金)10:00-19:00\r\n職種:ウェディング\r\n最寄駅:赤坂見附駅\r\n服装:上下黒のパンツスーツ\r\n備考:\r\n婚礼制作セッティングのお仕事です', '8800.0', 'wedding.jpg', 2, 0),
+(3, 'O\'yuki フラワーデザイン代官山　09:00-20:00', '05月20日(金 )09:00-20:00\r\n職種:店舗接客\r\n最寄駅:代官山\r\n服装:動きやすい服装\r\n備考:\r\n店舗での接客になります。9:00-20:00のうち時間相談可能です。', '8000.0', 'shop.jpg', 1, 0),
+(9, '大田花き市場　05:00~08:00', '04月30日(木)05:00-08:00\r\n職種：流通\r\n最寄駅：太田区\r\n服装：汚れてもいい服装\r\n備考\r\n市場内で集荷仕分けの仕事になります。', '10000.0', 'shijo.jpg', 4, 0),
+(10, 'SJフラワーズ　12:00-13:00', '3月21日(土)12:0013:00\r\n職種：スクール講師\r\n最寄駅：三鷹駅\r\n服装：動きやすい服装\r\n備考\r\n老人ホームでのお仕事になります。\r\n実務経験者歓迎 ', '7000.0', 'lesson.jpg', 5, 0),
+(11, 'はなひろ　09:00-19:00', '業務内容:	生花の販売接客です。\r\n勤務形態	正社員　社会保険完備\r\n先ずは、研修期間50日間をアルバイトとして勤務していただいた後の社員登用となります。\r\n給与	給与 200,000円 (未経験者) 経験者は、プラス能力給\r\n就業時間	路面店 9:00～19:00\r\nテナント店 9:00～21:00 早遅を組みます。', '9000.0', 'shop.jpg', 1, 0),
+(14, 'Hima-Kadan Style 順天堂店　09:00-18:00', '3月20日(金)09:00-18:00\r\n職種：ウェディング\r\n最寄駅：順天堂駅\r\n服装：上下黒のパンツスーツ\r\n備考\r\nホテルの婚礼制作等のお仕事です。', '9850.0', 'wedding.jpg', 2, 0),
+(15, '大田花き市場(夜勤)　01:00~04:00', '04月30日(木)01:00-04:00\r\n職種：流通\r\n最寄駅：太田区\r\n服装：汚れてもいい服装\r\n備考:\r\n市場内で集荷仕分けの仕事になります。', '11000.0', 'shijo.jpg', 4, 0),
+(18, '杉並区　田中様方　08:00-17:00', '3月20日(金)08:00-17:00\r\n職種：造園\r\n最寄駅：高円寺駅\r\n服装：作業着\r\n備考\r\n杉並区で個人宅の造園作業です。\r\n作業着は事務所で支給します', '14000.0', 'zouen.jpg', 3, 0),
+(19, '世田谷市場 フラワー講師　14:00-15:30', '3月14日(金)14:00-15:30\r\n職種：スクール\r\n最寄駅：世田谷駅\r\n服装：上下黒のパンツスーツ\r\n備考\r\n市場内でレッスンの補佐になります。', '6000.0', 'lesson.jpg', 5, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `member`
+--
+
+CREATE TABLE `member` (
+  `mem_id` int(10) UNSIGNED NOT NULL,
+  `family_name` varchar(20) NOT NULL,
+  `first_name` varchar(20) NOT NULL,
+  `family_name_kana` varchar(20) NOT NULL,
+  `first_name_kana` varchar(20) NOT NULL,
+  `sex` tinyint(1) UNSIGNED NOT NULL,
+  `year` varchar(4) NOT NULL,
+  `month` varchar(2) NOT NULL,
+  `day` varchar(2) NOT NULL,
+  `zip1` varchar(3) NOT NULL,
+  `zip2` varchar(4) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `tel1` varchar(6) NOT NULL,
+  `tel2` varchar(6) NOT NULL,
+  `tel3` varchar(6) NOT NULL,
+  `contents` text NOT NULL,
+  `traffic` varchar(20) NOT NULL,
+  `regist_date` datetime NOT NULL,
+  `update_date` datetime DEFAULT NULL,
+  `delete_date` datetime DEFAULT NULL,
+  `delete_flg` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
+  `user_id` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `member`
+--
+
+INSERT INTO `member` (`mem_id`, `family_name`, `first_name`, `family_name_kana`, `first_name_kana`, `sex`, `year`, `month`, `day`, `zip1`, `zip2`, `address`, `email`, `tel1`, `tel2`, `tel3`, `contents`, `traffic`, `regist_date`, `update_date`, `delete_date`, `delete_flg`, `user_id`, `password`) VALUES
+(1, '管理者', '太郎', 'かんりしゃ', 'たろう', 1, '1996', '08', '06', '100', '1001', '東京都千代田区千代田1番1号', 'admin@gmail.com', '070', '2637', '3685', '', '0_1_4', '2020-02-26 16:16:00', NULL, NULL, 0, 'admin', '$2y$10$CAr30xjQ0//1.xlNnOPIVOYpuMKL.HkLzSlpk1pyuy41Z01mcmkQC'),
+(3, '一般', '人', 'いっぱん', 'じん', 2, '2020', '01', '01', '100', '0001', '東京都千代田区千代田', 'member@gmail.com', '090', '2132', '0000', '遅刻歴あり', '0_1_3_4', '2020-03-06 20:28:25', NULL, NULL, 0, 'member', '$2y$10$OQVKARdDRUlfDy7yqcMDbelKSkzmffDjOF294OSLqxMS1T/vBhILW');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `personal`
+--
+
+CREATE TABLE `personal` (
+  `id` int(11) NOT NULL,
+  `question` varchar(50) NOT NULL,
+  `type` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `personal`
+--
+
+INSERT INTO `personal` (`id`, `question`, `type`) VALUES
+(1, '自己主張するのが下手だと思う', 'ana'),
+(2, '常に未来に対して情熱をもっている方だ', 'pro'),
+(3, '他人のためにしたことを感謝されないと悔しく思うことがよくある', 'sapo'),
+(4, '嫌なことは嫌と、はっきり言える', 'con'),
+(5, '人にはなかなか気を許さない', 'ana1'),
+(6, '人から楽しいとよく言われる', 'pro1'),
+(7, '短い時間にできるだけ多くのことをしようとする', 'con1'),
+(8, '失敗しても立ち直りが早い', 'pro2'),
+(9, '人からものを頼まれるとなかなかノーと言えない', 'sapo1'),
+(10, 'たくさんの情報を検討してから決断をくだす', 'ana2'),
+(11, '人の話を聞くことよりも自分が話していることのほうが多い', 'pro3'),
+(12, 'どちらかというと人見知りするほうだ', 'ana3'),
+(13, '自分と他人をよく比較する', 'sapo2'),
+(14, '変化に強く適応力がある', 'pro4'),
+(15, '何事も自分の感情を表現することが苦手だ', 'ana4'),
+(16, '相手の好き嫌いに関わらず、人の世話をしてしまう方だ', 'sapo3'),
+(17, '自分が思ったことはストレートに言う', 'con2'),
+(18, '仕事の出来栄えについて人から認められたい', 'sapo4'),
+(19, '競争心が強い', 'con3'),
+(20, '何事も完全にしないと気が済まない', 'con4');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `postcode`
+--
+
+CREATE TABLE `postcode` (
+  `jis` varchar(5) DEFAULT NULL,
+  `old_zip` varchar(5) DEFAULT NULL,
+  `zip` varchar(7) DEFAULT NULL,
+  `pref_kana` varchar(100) DEFAULT NULL,
+  `city_kana` varchar(100) DEFAULT NULL,
+  `town_kana` varchar(100) DEFAULT NULL,
+  `pref` varchar(100) DEFAULT NULL,
+  `city` varchar(100) DEFAULT NULL,
+  `town` varchar(100) DEFAULT NULL,
+  `comment1` tinyint(1) UNSIGNED DEFAULT NULL,
+  `comment2` tinyint(1) UNSIGNED DEFAULT NULL,
+  `comment3` tinyint(1) UNSIGNED DEFAULT NULL,
+  `comment4` tinyint(1) UNSIGNED DEFAULT NULL,
+  `comment5` tinyint(1) UNSIGNED DEFAULT NULL,
+  `comment6` tinyint(1) UNSIGNED DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+LOAD DATA INFILE '/Applications/MAMP/htdocs/project/php/ken-all.csv' INTO TABLE `postcode` FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `session`
+--
+
+CREATE TABLE `session` (
+  `customer_no` int(10) UNSIGNED NOT NULL,
+  `session_key` varchar(32) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `board`
+--
+ALTER TABLE `board`
+  ADD PRIMARY KEY (`board_id`);
+
+--
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`crt_id`),
+  ADD KEY `crt_idx` (`customer_no`,`delete_flg`);
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`ctg_id`);
+
+--
+-- Indexes for table `entry`
+--
+ALTER TABLE `entry`
+  ADD PRIMARY KEY (`entry_id`);
+
+--
+-- Indexes for table `item`
+--
+ALTER TABLE `item`
+  ADD PRIMARY KEY (`item_id`),
+  ADD KEY `item_idx` (`ctg_id`);
+
+--
+-- Indexes for table `member`
+--
+ALTER TABLE `member`
+  ADD PRIMARY KEY (`mem_id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Indexes for table `personal`
+--
+ALTER TABLE `personal`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `session`
+--
+ALTER TABLE `session`
+  ADD PRIMARY KEY (`customer_no`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `board`
+--
+ALTER TABLE `board`
+  MODIFY `board_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `crt_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `ctg_id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `entry`
+--
+ALTER TABLE `entry`
+  MODIFY `entry_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `item`
+--
+ALTER TABLE `item`
+  MODIFY `item_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT for table `member`
+--
+ALTER TABLE `member`
+  MODIFY `mem_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `personal`
+--
+ALTER TABLE `personal`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `session`
+--
+ALTER TABLE `session`
+  MODIFY `customer_no` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+  LOAD DATA INFILE '/Applications/MAMP/htdocs/project/php/ken-all.csv' INTO TABLE `postcode` FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"';

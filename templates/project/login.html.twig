@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ログイン画面</title>
+    <link rel="stylesheet" href="{{constant('php\\Bootstrap::APP_URL')}}css/stylesheet.css">
+    <link rel="stylesheet" href="{{constant('php\\Bootstrap::APP_URL')}}css/responsive.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  </head>
+  <body>
+  <header>
+    <div class="container">
+      <div class="header-left">
+        <img class="logo" src="{{constant('php\\Bootstrap::ENTRY_URL')}}images/logo.png">
+      </div>
+      <!-- ここにメニューアイコンを追加してください -->
+      <span class="fa fa-bars menu-icon"></span>
+
+      <div class="header-right">
+        <a href="{{constant('php\\Bootstrap::ENTRY_URL')}}home.php">HOME</a>
+        <a href="{{constant('php\\Bootstrap::ENTRY_URL')}}contact-form.php">お問い合わせ</a>
+        <a href="{{constant('php\\Bootstrap::ENTRY_URL')}}regist.php">エントリーフォーム</a>
+        <a href="{{constant('php\\Bootstrap::ENTRY_URL')}}login.php" class="login">会員専用ページ</a>
+      </div>
+    </div>
+  </header>
+
+    <div class="contact-form">
+      <h3 class="section-title">登録スタッフ専用ページへはこちら</h3>
+    {% if dataArr.result | length > 0 %}<p>{{dataArr.result}}</p>{% endif %}
+      <form method="post" action="confirm.php" >
+      <p>メールアドレス</p>
+
+      <input type="text" name="email" value="{{dataArr.email}}"><br>
+      {% if errArr.email | length > 0 %}<br><span class="red">{{errArr.email}}</span>{% endif %}
+
+      <p>パスワード</p>
+
+      <input  type="password" name="password" value="{{dataArr.password}}"><br>
+      {% if errArr.password | length > 0 %}<br><span class="red">{{errArr.password}}</span>{% endif %}
+
+      <input class="contact-submit" type="submit" name="login" value="ログイン">
+      {% if errArr.result | length > 0 %}<p style="color:#f00;">{{errArr.result}}</p>{% endif %}
+      <p><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}regist.php">新規登録</a></p>
+
+    </form>
+    </div>
+
+  <footer>
+    <div class="container">
+      <img class="logo" src="{{constant('php\\Bootstrap::ENTRY_URL')}}images/logo.png">
+      <p> be creative.</p>
+    </div>
+  </footer>
+  </body>
+</html>

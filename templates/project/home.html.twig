@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>daihana</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{{constant('php\\Bootstrap::APP_URL')}}js/common.js"></script>
+    <link rel="stylesheet" href="{{constant('php\\Bootstrap::APP_URL')}}css/stylesheet.css">
+    <link rel="stylesheet" href="{{constant('php\\Bootstrap::APP_URL')}}css/responsive.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  </head>
+  <body>
+  {% include 'header.html.twig' %}
+
+    <div class="top-wrapper">
+      <div class="container">
+        <h1>Keep your face to the sunshine </h1>
+        <h1> and you cannot see the shadow.</h1>
+        <p>daihanaは花業界に特化した人材サービス会社です。</p>
+        <p>花業界経験者も未経験者も、お花のお仕事に興味があればまずはお気軽にご相談ください！</p>
+        <div class="btn-wrapper">
+          <a href="{{constant('php\\Bootstrap::ENTRY_URL')}}regist.php" class="btn signup">新規登録はこちら</a>
+          <p>or</p>
+          <a class="btn blue" href="{{constant('php\\Bootstrap::ENTRY_URL')}}login.php">すでに会員の方はこちら</a>
+      </div>
+    </div>
+    </div>
+      <div class="lesson-wrapper">
+        <div class="container">
+          <div class="heading">
+            <h2>Change direction, and turn a headwind into a tailwind.</h2>
+          </div>
+          <div class="lessons">
+            <div class="lesson">
+              <div class="lesson-icon">
+                <img src="{{constant('php\\Bootstrap::ENTRY_URL')}}images/green.png">
+                <p>daihanaとは</p>
+              </div>
+              <p class="text-contents">daihanaはお花業界に特化した人材サービスです。
+               大手生花店はもちろん、町の小さなお花屋さんからウエディング装花を手掛けるホテルや式場とのお取引をさせていただいています。
+               また花卉市場や場内仲卸様とも繋がりがあり、幅広いお仕事のご紹介でき、花業界の動向も把握しているので安心しておまかせいただけます。
+               </p>
+            </div>
+            <div class="lesson">
+              <div class="lesson-icon">
+                <img src="{{constant('php\\Bootstrap::ENTRY_URL')}}images/yellow.png">
+                <p>豊富なレッスン</p>
+              </div>
+              <p class="text-contents">フラワー教室では学ぶことのできない実践型の研修制度もありますので、未経験の方にも安心です。
+              お花業界に特化した人材サービスからどんな派遣会社よりも、daihanaはお花のお仕事を真剣に考えているのです！</p>
+            </div>
+            <div class="lesson">
+              <div class="lesson-icon">
+                <img src="{{constant('php\\Bootstrap::ENTRY_URL')}}images/red.png">
+                <p>パートナー割引</p>
+              </div>
+              <p class="text-contents">実際に花のつぼみが開き、散るまでの過程を観察し、自ら学んでいただきたいという想いから、
+              従業員は割引価格で花材を購入することができます。(割引率は、商品により異なります)</p>
+            </div>
+            <div class="lesson">
+              <div class="lesson-icon">
+                <a href="https://www.instagram.com/florist_murashi/">
+                <img src="{{constant('php\\Bootstrap::ENTRY_URL')}}images/blue.png"></a>
+                <p>Gallery</p>
+              </div>
+              <p class="text-contents">今までの作成物です。</p>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="message-wrapper">
+        <div class="container">
+          <div class="heading">
+            <h2>さぁ、あなたも新しいみませんか?</h2>
+            <h3> Be creative!</h3>
+          </div>
+          <a href="{{constant('php\\Bootstrap::ENTRY_URL')}}regist.php">
+          <span class="btn message">エントリーする</span></a>
+        </div>
+      </div>
+
+      {% include 'footer.html.twig' %}
+  </body>
+</html>

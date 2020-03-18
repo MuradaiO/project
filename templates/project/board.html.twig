@@ -1,0 +1,70 @@
+<html>
+    <head>
+      <meta charset="utf-8">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="{{constant('php\\Bootstrap::APP_URL')}}js/shopping.js"></script>
+      <link href="{{constant('php\\Bootstrap::APP_URL')}}css/stylesheet.css" rel="stylesheet">
+      <link rel="stylesheet" href="{{constant('php\\Bootstrap::APP_URL')}}css/responsive.css">
+
+      <link href="{{constant('php\\Bootstrap::APP_URL')}}css/work-page.css" rel="stylesheet">
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+      <title>掲示板</title>
+    </head>
+
+    <body>
+
+    {% include 'header.html.twig' %}
+
+  <div id="work-sub">
+
+    <form method="post" action="">
+      <table>
+        <tr>
+         <th>トークルーム</th>
+        </tr>
+        <tr>
+         <th>本文</th>
+        </tr>
+        <tr>
+         <td><textarea name="contents" rows="4" cols="20" maxlength="140"></textarea></td>
+        </tr>
+        <tr>
+          <td colspan="2"><input type="submit" name="send" value="書き込む" /></td>
+        </tr>
+      </table>
+    </form>
+  {%if dataArr.result | length > 0 %}<p>{{dataArr.result}}</p>{% endif %}
+    {%if err_msg | length > 0 %}<p style="color:#f00;">{{err_msg}}</p>{% endif %}
+    <p><a href="list.php">一覧へ戻る</a></p>
+   </div>
+
+    <div id="work-main">
+    <div class="board-list-wrapper">
+    {% for key , value in data %}
+     <ul>
+      <li>
+       <div class="board-list-item">
+        <div class="board-user">
+           {% if value.sex == 1 %}
+           <img src="{{constant('php\\Bootstrap::ENTRY_URL')}}images/male.png" class='icon-user'>
+           {% else %}
+           <img src="{{constant('php\\Bootstrap::ENTRY_URL')}}images/female.png" class='icon-user'>
+           {% endif %}
+           <p>{{value.user_id}}</p>
+        </div>
+           <p class="board-text">{{value.contents|nl2br }}</p>
+       </div>
+       </li>
+
+      </ul>
+      {% endfor %}
+
+    </div>
+  </div>
+  </body>
+  <section>
+
+  {% include 'footer.html.twig' %}
+  </body>
+</html>

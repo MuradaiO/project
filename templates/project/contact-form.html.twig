@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>daihana</title>
+    <link rel="stylesheet" href="{{constant('php\\Bootstrap::APP_URL')}}css/stylesheet.css">
+    <link rel="stylesheet" href="{{constant('php\\Bootstrap::APP_URL')}}css/responsive.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  </head>
+  <body>
+  {% include 'header.html.twig' %}
+
+      <div class="contact-form">
+       <form action="mail.php" method="post">
+        <h3 class="section-title" id="contact">お問い合わせ</h3>
+        <p>メールアドレス <span class="red">*</span></p>
+
+        <input type="text" name="email" value="{{dataArr.email}}">
+      {% if errArr.email | length > 0 %}<br><span class="red">{{errArr.email}}</span>{% endif %}
+
+        <p>タイトル <span class="red">*</span></p>
+        <input type="text"  name="title" value="{{dataArr.title}}">
+      {% if errArr.title | length > 0 %}<br><span class="red">{{errArr.title}}</span>{% endif %}
+
+        <p>お問い合わせ内容 <span class="red">*</span></p>
+
+        <textarea name="contents" rows="4" cols="40" value="{{dataArr.contact}}" ></textarea><br>
+      {% if errArr.contents | length > 0 %}<br><span class="red">{{errArr.contents}}</span><br>{% endif %}
+
+        <input class="contact-submit" type="submit"  name="contact" value="送信">
+      {% if dataArr.result | length > 0 %}<br><span class="red">{{dataArr.result}}</span>{% endif %}
+
+       </form>
+      </div>
+
+    </div>
+
+    {% include 'footer.html.twig' %}
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="{{constant('php\\Bootstrap::APP_URL')}}js/shopping.js"></script>
+  <link href="{{constant('php\\Bootstrap::APP_URL')}}css/stylesheet.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{constant('php\\Bootstrap::APP_URL')}}css/responsive.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <title>適性検査</title>
+</head>
+
+<body>
+
+{% include 'header.html.twig' %}
+
+<div class="contact-form">
+  <h2 class="section-title">適性検査</h2>
+
+   <form method="post" acrion="">
+    <table  class="ta1">
+
+      <tr>
+        <th> NO:</th>
+        <th>当てはまると思うところにチェックを入れてください</th>
+        <th>よくあてはまる</th>
+        <th>あてはまる</th>
+        <th>あまりあてはまらない</th>
+        <th>あてはまらない</th>
+
+      </tr>
+
+      {% for value in dataArr %}
+      <tr>
+        <td> {{value.id}} </td>
+        <td> {{value.question}} </td>
+
+        <td><input type="radio" name="{{value.type}}" value="1"><label>1</label></td>
+        <td><input type="radio" name="{{value.type}}" value="2"><label>2</label></td>
+        <td><input type="radio" name="{{value.type}}" value="3"><label>3</label></td>
+        <td><input type="radio" name="{{value.type}}" value="4"><label>4</label></td>
+
+      </tr>
+      {% endfor %}
+    </table>
+ <div>
+   <input type="submit" name="personal" value="送信">
+   <a href="{{constant('php\\Bootstrap::ENTRY_URL')}}list.php">戻る</a>
+ </div>
+</form>
+<div>
+<p>コントローラの適性：{{result.0}}</p>
+<p>プロモータの適性：{{result.1}}</p>
+<p>サポータの適性：{{result.2}}</p>
+<p>アナライザの適性：{{result.3}}</p>
+</div>
+  {% include 'footer.html.twig' %}
+  </body>
+</html>
