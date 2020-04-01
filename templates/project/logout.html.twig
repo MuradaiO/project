@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>ログイン画面</title>
-  <link rel="stylesheet" href="{{constant('php\\Bootstrap::APP_URL')}}css/stylesheet.css">
-  <link rel="stylesheet" href="{{constant('php\\Bootstrap::APP_URL')}}css/responsive.css">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-</head>
-<body>
-{% include 'header.html.twig' %}
-
+{% extends 'common/template.html.twig' %}
+{% block title %}daihana{% endblock %}
+{% block content %}
 
 <div class="main">
 
@@ -35,6 +26,4 @@
   </div>
 </div>
 
-{% include 'footer.html.twig' %}
-  </body>
-</html>
+{% endblock %}

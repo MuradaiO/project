@@ -45,7 +45,7 @@ CREATE TABLE `board` (
 INSERT INTO `board` (`board_id`, `user_id`, `sex`, `contents`, `email`) VALUES
 (1, 'admin', 1, 'rqfa', 'suteado.tamokuteki@gmail.com'),
 (2, 'member', 2, 'lm;m', 'member@gmail.com'),
-(3, 'member', 2, 'kkkkklnlnloohohuohhihhohhkhhhihhhhyyyhyhhhhhkjhkihlhigogiguogugugiogiogiogggkgig;logho;h;ohioihoihlhoihlo;hloho;ihloh;oih;oh;oho;hoiho;h;oho', 'member@gmail.com');
+(3, 'member', 2, 'test_user', 'member@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -230,7 +230,7 @@ CREATE TABLE `postcode` (
   `comment5` tinyint(1) UNSIGNED DEFAULT NULL,
   `comment6` tinyint(1) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-LOAD DATA INFILE '/Applications/MAMP/htdocs/project/php/ken-all.csv' INTO TABLE `postcode` FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"';
+LOAD DATA INFILE '/Applications/MAMP/htdocs/project/ken-all.csv' INTO TABLE `postcode` FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"';
 
 -- --------------------------------------------------------
 

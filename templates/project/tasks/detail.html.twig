@@ -1,0 +1,43 @@
+{% extends 'tasks/common/template.html.twig' %}
+{% block title %}掲示板{% endblock %}
+{% block content %}
+
+
+    <input type="hidden" name ="entry_url" value="{{constant('php\\Bootstrap::ENTRY_URL')}}"
+          id="entry_url">
+
+    <div id="work-main">
+
+         <div class="list">
+          <p >
+           <img class="text-align: center;"src="{{constant('php\\Bootstrap::APP_URL')}}public/images/{{itemData.image}}"
+                alt="{{itemData.item_name}}"></p><br>
+
+          <div >
+            <table class="ta1">
+             <tr>
+              <th>案件名</th>
+              <td>{{itemData.item_name}}</td>
+             </tr>
+             <tr>
+              <th>詳細</th>
+              <td>{{itemData.detail}}</td>
+             </tr>
+             <tr>
+              <th>日当</th>
+              <td>&yen;{{itemData.price|number_format(0, '.' ,',')}}</td>
+             </tr>
+             <tr>
+               <th></th>
+               <td>
+               <input type="button"  name="back" value="一覧へ戻る" onclick="history.back(); return false">
+               <input type="button"　class="btn" name="cart_in" value="この求人を保存する" id="cart_in">
+            </td>
+            </table>
+            <input type="hidden" name="item_id" id="item_id" value="{{itemData.item_id}}">
+          </div>
+         
+        </div>
+    </div>
+
+{% endblock %}

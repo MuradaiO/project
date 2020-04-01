@@ -1,0 +1,35 @@
+{% extends 'tasks/common/template.html.twig' %}
+{% block title %}daihana{% endblock %}
+{% block content %}
+
+  <div id="work-main">
+    <div id="item_list">
+      {% for value in taskArr %}
+        <div class="list">
+         <p class="img"><img src="{{constant('php\\Bootstrap::APP_URL')}}public/images/{{value.image}}" alt="{{value.item_name}}"></p>
+         <br>
+         <div class="text">
+           <table class="ta1">
+            <tr>
+             <th>案件名</th>
+             <td><a href="{{constant('php\\Bootstrap::RECRUIT_URL')}}detail.php?item_id={{value.item_id}}">
+               {{value.item_name}}</a></td>
+            </tr>
+            <tr>
+
+             <th>日当</th>
+
+             <td>&yen;{{value.price|number_format(0, '.' ,',')}}</td>
+            </tr>
+            <tr>
+             <td></td>
+             <td><a href="{{constant('php\\Bootstrap::RECRUIT_URL')}}detail.php?item_id={{value.item_id}}" class="btn">詳細を見る</a></td>
+            </tr>
+          </table>
+           
+        </div>
+   </div>
+   {% endfor %}
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'tasks/common/template.html.twig' %}
+{% block title %}掲示板{% endblock %}
+{% block content %}
+
+    <div id="contents">
+
+      <div id="inner">
+
+        <p>保存した求人リスト</p>
+        <p><a href="{{constant('php\\Bootstrap::RECRUIT_URL')}}list.php">案件一覧へ戻る</a></p>
+        <p><a href="{{constant('php\\Bootstrap::RECRUIT_URL')}}cart.php?ukeou=4">エントリー</a></p>
+      {% if result | length > 0 %}<br><p>{{ result }}</p>{% endif %}
+        <p>求人数：{{sumNum}}件 合計金額：&yen;{{sumPrice|number_format(0, '.', ',')}}</p>
+        {% if dataArr | length == 0 %}
+          <p>保存している求人はありません</p>
+        {% else %}
+          {% for value in dataArr %}
+            <div class="item">
+              <ul>
+                <li class="image">
+                  <img src="{{constant('php\\Bootstrap::APP_URL')}}public/images/{{value.image}}" alt="{{value.item_name}}">
+                </li>
+                <li class="name">{{value.item_name}}</li>
+                <li class="price"> 日当 &yen; {{value.price|number_format(0,'.',',')}}</li>
+                <li><a href="{{constant('php\\Bootstrap::RECRUIT_URL')}}cart.php?crt_id={{value.crt_id}}">削除</a></li>
+              </ul>
+            </div>
+          {% endfor %}
+        {% endif %}
+        </div>
+      </div>
+    
+
+ {% endblock %}

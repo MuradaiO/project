@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>{% block title %}
+{% endblock %}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ここにサイト説明を入れます">
+<meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
+<link rel="stylesheet" href="{{constant('php\\Bootstrap::APP_URL')}}public/css/style.css">
+<link rel="stylesheet" href="{{constant('php\\Bootstrap::APP_URL')}}public/css/slide.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="{{constant('php\\Bootstrap::APP_URL')}}public/js/openclose.js"></script>
+<script src="{{constant('php\\Bootstrap::APP_URL')}}public/js/fixmenu.js"></script>
+<script src="{{constant('php\\Bootstrap::APP_URL')}}public/js/fixmenu_pagetop.js"></script>
+<script src="{{constant('php\\Bootstrap::APP_URL')}}public/js/ddmenu_min.js"></script>
+<script src="{{constant('php\\Bootstrap::APP_URL')}}public/js/shopping.js"></script>
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+
+<div id="container">
+
+<header>
+<div class="inner">
+<h1 id="logo"><a href="index.html"><img src="{{constant('php\\Bootstrap::APP_URL')}}public/images/logo.png" alt="SAMPLE SEARCH"></a></h1>
+</div>
+</header>
+
+<!--PC用（901px以上端末）メニュー-->
+<nav id="menubar" class="nav-fix-pos">
+<ul class="inner">
+<li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}index.php">ホーム<span>Home</span></a></li>
+<li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}recruit/list.php">求人一覧<span>Recruit</span></a>
+    <ul class="ddmenu">
+    {% for value in cateArr %}
+   <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}recruit/list.php?ctg_id={{value.ctg_id}}">
+     {{value.category_name}}の求人</a></li>
+     {% endfor %}
+    </ul>
+</li>
+<li><a href="#">{{hello}}<span>Mypage</span></a>
+    <ul class="ddmenu">
+       <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}recruit/member_detail.php?mem_id={{userData.mem_id}}">マイページ</a></li>
+       <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}recruit/cart.php">保存した求人リスト</a></li>
+       <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}recruit/entry_list.php">応募した求人リスト</a></li>
+       <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}recruit/f-repo.php">勤怠報告</a></li>
+       <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}logout.php">ログアウトする</a></li>
+    </ul>
+</li>
+<li><a href="#">その多機能<span>other</span></a>
+  <ul class="ddmenu">
+     <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}recruit/board.php">掲示板</a></li>
+     <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}recruit/Personal.php">性格診断</a></li>
+   </ul>
+</li>
+<li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}contact-form.php">お問い合わせ<span>Contact</span></a></li>
+
+</ul>
+</nav>
+
+<!--小さな端末用（900px以下端末）メニュー-->
+<nav id="menubar-s">
+<ul>
+<li><a href="index.html">ホーム<span>Home</span></a></li>
+<li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}recruit/list.php">求人一覧<span>Recruit</span></a>
+    <ul class="ddmenu">
+    {% for value in cateArr %}
+   <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}recruit/list.php?ctg_id={{value.ctg_id}}">
+     {{value.category_name}}の求人</a></li>
+     {% endfor %}
+    </ul>
+</li>
+<li><a href="#">{{hello}}<span>Mypage</span></a>
+    <ul class="ddmenu">
+       <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}recruit/member_detail.php?mem_id={{userData.mem_id}}">マイページ</a></li>
+       <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}recruit/cart.php">保存した求人リスト</a></li>
+       <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}recruit/entry_list.php">応募した求人リスト</a></li>
+       <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}recruit/f-repo.php">勤怠報告</a></li>
+       <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}recruit/logout.php">ログアウトする</a></li>
+    </ul>
+</li>
+<li><a href="#">その多機能<span>other</span></a>
+  <ul class="ddmenu">
+     <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}recruit/board.php">掲示板</a></li>
+     <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}recruit/Personal.php">性格診断</a></li>
+   </ul>
+</li><li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}contact-form.php">お問い合わせ<span>Contact</span></a></li>
+</ul>
+</nav>
+
+<div id="contents">
+
+<div class="inner">
+
+<section>
+{% block content %}
+  
+{% endblock %}
+
+
+</section>
+
+</div>
+<!--/.inner-->
+
+</div>
+<!--/#contents-->
+
+<footer>
+
+<div id="footermenu" class="inner">
+<ul>
+<li><a href="index.html">ホーム</a></li>
+<li><a href="company.html">会社概要</a></li>
+<li><a href="info.html">掲載のご案内</a></li>
+<li><a href="link.html">リンク</a></li>
+<li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}contact-form.php">お問い合わせ</a></li>
+</ul>
+<ul>
+   <li class="title"><a href="#">管理者メニュー</a></li>
+   <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}add_item.php">案件管理(管理者)</a></li>
+   <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}member_list.php">メンバー表（管理者）</a></li>
+</ul>
+
+<!--
+<ul>
+<li class="title">タイトル</li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+</ul>
+<ul>
+-->
+
+</div>
+<!--/#footermenu-->
+
+<div id="copyright">
+<small>Copyright&copy; <a href="index.html">SAMPLE SEARCH</a> All Rights Reserved.</small>
+<span class="pr"><a href="https://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
+</div>
+<!--/#copyright-->
+
+</footer>
+
+</div>
+<!--/#container-->
+
+<p class="nav-fix-pos-pagetop"><a href="#">↑</a></p>
+
+<!--メニュー開閉ボタン-->
+<div id="menubar_hdr" class="close"></div>
+<!--メニューの開閉処理条件設定　800px以下-->
+<script>
+if (OCwindowWidth() <= 800) {
+	open_close("menubar_hdr", "menubar-s");
+}
+</script>
+
+</body>
+</html>

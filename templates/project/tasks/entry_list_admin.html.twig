@@ -1,0 +1,64 @@
+{% extends 'tasks/common/template.html.twig' %}
+{% block title %}エントリーリスト{% endblock %}
+{% block content %}
+
+<div class="contact-form">
+  <h2 class="section-title">現在の申し込み状況</h2>
+   {% if dataArr.result | length > 0 %}
+   <p>{{dataArr.result}}</p>
+ {% endif %}
+    <table border="1">
+      <tr>
+        <th>id</th>
+        <th>氏名</th>
+        <th>性別</th>
+        <th>メール</th>
+        <th>案件</th>
+        <th>単価</th>
+        <th>職種</th>
+        <th>エントリー状況</th>
+        <th>選考結果</th>
+
+      </tr>
+      {% for value in dataArr %}
+      <tr>
+        <td>{{value.entry_id}}</td>
+        <td>
+        <a href="{{constant('php\\Bootstrap::RECRUIT_URL')}}member_detail.php?mem_id={{value.mem_id}}">
+          {{value.family_name}} {{value.first_name}}</a>
+
+        </td>
+        <td>{% if value.sex == '1' %}男性 {% elseif value.sex == '2' %}女性{% endif %}</td>
+        <td>{{value.email}}</td>
+        <td>
+          <a href="{{constant('php\\Bootstrap::RECRUIT_URL')}}detail.php?item_id={{value.item_id}}">
+            {{value.item_name}}</a>
+        </td>
+        <td>{{value.price}}</td>
+        <td>
+        {% for index, label in ctg_id %}
+         {% if value.ctg_id == index %}
+         {{label}}
+       {% endif %}
+        {% endfor %}
+      </td>
+        {% if value.entry_flg == 0 %}
+        <td><span>応募中</span></td>
+       {% elseif value.entry_flg == 1 %}
+       <td><span class="option4">採用</span></td>
+       {% else %}
+        <td><span class="red">不採用</span></td>
+      {% endif %}
+
+       <td>
+        <a onclick="return confirm('本当に、いいんですね？')" class="option4 btn"　 href="{{constant('php\\Bootstrap::RECRUIT_URL')}}entry_list.php?recruit=1&entry_id={{value.entry_id}}">採用</a>
+        <a onclick="return confirm('本当に、いいんですね？')" class="btn"href="{{constant('php\\Bootstrap::RECRUIT_URL')}}entry_list.php?recruit=2&entry_id={{value.entry_id}}">不採用</a>
+       </td>
+      </tr>
+    {% endfor %}
+    </table>
+
+
+      <p><a href="{{constant('php\\Bootstrap::RECRUIT_URL')}}list.php">一覧へ戻る</a></p>
+  </div>
+{% endblock %}

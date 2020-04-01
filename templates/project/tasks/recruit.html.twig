@@ -1,0 +1,38 @@
+{% extends 'tasks/common/template.html.twig' %}
+{% block title %}求人一覧{% endblock %}
+{% block content %}
+
+<h2>求人一覧<span>Recruit</span></h2>
+<ul class="list2">
+     {% for value in cateArr %}
+   <li><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}recruit/list.php?ctg_id={{value.ctg_id}}">
+     {{value.category_name}}の求人</a></li>
+     {% endfor %}
+</ul>
+
+<table class="ta1">
+<tr>
+<th>花屋</th>
+<td>主に店舗での接客、販売業務になります。</td>
+</tr>
+<tr>
+<th>ブライダル・葬儀</th>
+<td>ホテルや婚礼会場のセッティング業務になります。</td>
+</tr>
+<tr>
+<th>アトリエ・造園</th>
+<td>アトリエでの装花や個人宅への派遣になります。</td>
+</tr>
+<tr>
+<th>流通・仲卸</th>
+<td>花卉取り扱い市場での業務になります。</td>
+</tr>
+<tr>
+<th>ワークショップ（講師）</th>
+<td>ワークショップへの出張講師をしてもらいます。</td>
+</tr>
+</table>
+
+</section>
+
+{% endblock %}

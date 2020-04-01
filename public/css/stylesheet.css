@@ -1,0 +1,470 @@
+/*slide.cssの読み込み
+------------------------------------------------------------------------------------------------------------------------------------------------------*/
+@import url(slide.css);
+
+
+/*全体の設定
+---------------------------------------------------------------------------*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+}
+
+
+h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,form,figure,form,select,textarea {margin: 0px;padding: 0px;font-size: 100%;font-weight: normal;}
+ul {list-style-type: none;}
+img {border: none;max-width: 100%;height: auto;vertical-align: middle;}
+table {border-collapse:collapse;font-size: 100%;border-spacing: 0;}
+iframe {width: 100%;}
+video,audio {max-width: 100%;}
+
+/* 半角数字入力フォームのスピンボタンを削除する */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+     -webkit-appearance: none;
+     margin: 0;
+}
+
+input[type="number"] {
+     -moz-appearance:textfield;
+}
+
+/* inputとtextareaのCSS */
+textarea{
+  width:350px;
+  margin-top:10px;
+  margin-bottom:30px;
+  padding: 20px;
+  font-size: 18px;
+  border: 1px solid #dee7ec;
+}
+/* inputとtextareaのCSS */
+input{
+  width:300px;
+  margin-top:10px;
+  margin-bottom:30px;
+  padding: 20px;
+  font-size: 18px;
+  border: 1px solid #dee7ec;
+}
+
+/*リンク（全般）設定
+---------------------------------------------------------------------------*/
+
+a {
+  text-decoration: none;
+  color: 000000;		/*リンクテキストの色*/
+	transition: 0.5s;	/*マウスオン時の移り変わるまでの時間設定。0.5秒。*/
+
+}
+a:hover {
+	color: #ed7692;			/*マウスオン時の文字色*/
+	text-decoration: none;	/*マウスオン時に下線を消す設定。残したいならこの１行削除。*/
+}
+
+/* ヘッダーー関連
+---------------------------------------------------------------------------*/
+header {
+  height: 65px;
+  width: 100%;
+  background-color: rgba(34, 49, 52, 0.9);
+  position :fixed;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  width: 124px;
+  margin-top: 20px;
+}
+
+.header-left {
+  float: left;
+}
+
+.header-right {
+  float: right;
+  margin-right: -25px;
+}
+
+.header-right a {
+  line-height: 65px;
+  padding: 0 25px;
+  color: white;
+  display: block;
+  float: left;
+  transition: all 0.5s;
+}
+
+.header-right a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+
+/*  ホームヘッダー下
+---------------------------------------------------------------------------*/
+.container {
+  max-width: 1170px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.top-wrapper {
+  padding: 180px 0 100px 0;
+  background-image: url(http://localhost:8888/project/public/images/top.jpg);
+  background-size: cover;
+  color: white;
+  text-align: center;
+}
+
+.top-wrapper h1 {
+  opacity: 0.5;
+  font-size: 45px;
+  letter-spacing: 5px;
+}
+
+.btn-wrapper {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.btn-wrapper p {
+  margin: 10px 0;
+}
+
+.signup {
+  background-color: #239b76;
+}
+
+.blue {
+  background-color: #3b5998;
+
+}
+.fire{background-color: #f00;
+}
+.grey{
+  background-color: grey;
+
+}
+.twitter {
+  background-color: #55acee;
+}
+.btn :hover{
+  opacity: 0.9;
+}
+/*
+---------------------------------------------------------------------------*/
+.btn {
+  padding: 8px 24px;
+  color: white;
+  display: inline-block;
+  opacity: 0.8;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+.fa {
+  margin-right: 5px;
+}
+/*mainコンテンツ（中央のブロック）
+---------------------------------------------------------------------------*/
+#main {
+	float: left;	/*右に回り込み*/
+	padding:30px, 20px;		/*余白の幅*/
+}
+/*mainコンテンツのh2タグ設定*/
+#main h2 {
+	clear: both;
+	margin-bottom: 20px;
+	padding: 10px 20px;	/*上下、左右への余白*/
+	font-size: 18px;	/*文字サイズ*/
+	color: #fff;		/*文字色*/
+	background: #ed7692;	/*背景色*/
+}
+/*h2タグの１文字目への追加設定*/
+#main h2::first-letter {
+	border-left: 3px solid #fff;	/*左の線の幅、線種、色*/
+	padding-left: 15px;				/*線とテキストとの余白*/
+}
+/*mainコンテンツのh3タグ設定*/
+#main h3 {
+	clear: both;
+	margin-bottom: 20px;
+	padding: 4px 20px;	/*上下、左右への余白*/
+	font-size: 16px;	/*文字サイズ*/
+	border: 1px solid #ccc;		/*枠線の幅、線種、色*/
+}
+/*h3タグの１文字目への追加設定*/
+#main h3::first-letter {
+	border-left: 3px solid #ed7692;	/*左の線の幅、線種、色*/
+	padding-left: 15px;				/*線とテキストとの余白*/
+}
+/*mainコンテンツの段落タグ設定*/
+#main p {
+	padding: 0px 20px 20px;	/*上、左右、下への余白*/
+}
+/*他。微調整。*/
+#main p + p {
+	margin-top: -5px;
+}
+#main h2 + p,
+#main h3 + p {
+	margin-top: -10px;
+}
+#main section + section {
+	margin-top: 30px;
+}
+
+/* ポップアップ表示に関わるcss
+---------------------------------------------------------------------------*/
+.popup {
+    display: none;
+    height: 100vh;
+    width: 100%;
+    background: black;
+    opacity: 0.7;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.content{
+    background: #fff;
+    padding: 30px;
+    width:
+}
+.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*テーブル
+---------------------------------------------------------------------------*/
+/*テーブル１行目に入った見出し部分（※caption）*/
+.ta1 caption {
+	border: 1px solid #ccc;	/*テーブルの枠線の幅、線種、色*/
+	border-bottom: none;	/*下線だけ消す*/
+	text-align: left;		/*文字を左寄せ*/
+	background: #eee;		/*背景色*/
+	color: #666;			/*文字色*/
+	font-weight: bold;		/*太字に*/
+	padding: 10px;			/*ボックス内の余白*/
+}
+/*ta1設定*/
+.ta1 {
+	table-layout: fixed;
+	width: 100%;
+	margin: 0 auto 20px;
+	background: #fff;	/*背景色*/
+	color: #666;		/*文字色*/
+}
+.ta1, .ta1 td, .ta1 th {
+	word-break: break-all;
+	border: 1px solid #ccc;	/*テーブルの枠線の幅、線種、色*/
+	padding: 10px;	/*ボックス内の余白*/
+}
+/*ta1の左側ボックス*/
+.ta1 th {
+	width: 140px;		/*幅*/
+	text-align: center;	/*センタリング*/
+}
+/*labelタグを２列表示にする（CMS用）*/
+.ta input{
+  width: auto;
+}
+
+.ta1 input ,label{
+  float: left
+  width:auto;
+}
+
+/*求人一覧ページの各ブロック
+---------------------------------------------------------------------------*/
+/*各ボックスの設定*/
+.list {
+	position: relative;overflow: hidden;
+	padding: 25px;			/*ボックス内の余白*/
+	border: 1px solid #ccc;	/*枠線の幅、線種、色*/
+	margin-bottom: 20px;	/*ボックス同士の上下間に空けるスペース*/
+	box-shadow: 2px 2px 10px rgba(0,0,0,0.15);	/*ボックスの影。右に、下に、広げる幅、0,0,0は黒の事で0.15は15%色がついた状態の事。*/
+}
+/*ボックス内のh4タグ設定*/
+.list h4 {
+	font-size: 28px;	/*文字サイズ*/
+	color: #ed7692;		/*文字色*/
+	line-height: 1.4;	/*行間を少しせまく*/
+}
+.list h4 a {
+	color: #ed7692;	/*リンクテキストの文字色*/
+}
+/*ボックス内のp(段落)タグ設定*/
+.list p {
+	padding: 0px 0px 10px !important;	/*上、左右、下への余白*/
+}
+/*ボックス内の写真*/
+.list p.img {
+	float: left;	/*左に回り込み*/
+	width: 30%;		/*画像の幅*/
+	margin-bottom: 20px;	/*画像の下に空けるスペース*/
+}
+/*写真の右側に回り込むブロック*/
+.list .text {
+	float: right;	/*右に回り込み*/
+	width: 67%;		/*ブロック幅*/
+}
+/*listブロック内のta1設定*/
+.list .ta1, .list .ta1 td, .list .ta1 th {
+	padding: 5px;	/*ボックス内の余白*/
+	font-size: 14px;	/*文字サイズ*/
+}
+/*ta1の左側ボックスの文字を太字でなく標準にする*/
+.ta1 th {font-weight: normal;}
+/*日付(CMS用)*/
+.date {
+	font-size: 11px;	/*文字サイズ*/
+	color: #999;		/*文字色*/
+	text-align: right;	/*文字を右寄せ*/
+}
+.date span {
+	display: inline-block;
+}
+
+/* menu-iconのCSS */
+.menu-icon {
+  color: white;
+  float: right;
+  font-size: 25px;
+  padding: 21px 0;
+
+  display: none;
+}
+
+
+.lesson-wrapper {
+  padding-bottom: 80px;
+  padding-left: 5%;
+  padding-right: 5%;
+  background-color: #f7f7f7;
+  text-align: center;
+}
+
+.heading {
+  padding-top: 80px;
+  padding-bottom: 50px;
+  color: #5f5d60;
+}
+
+.heading h2 {
+  font-weight: normal;
+}
+
+.lesson {
+  float: left;
+  width: 25%;
+}
+
+.lesson-icon {
+  position: relative;
+}
+
+.lesson-icon p {
+  position: absolute;
+  top: 44%;
+  width: 100%;
+  color: white;
+}
+
+.text-contents {
+  width: 80%;
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 13px;
+  color: #b3aeb5;
+}
+.clear {
+  clear: left;
+}
+
+/* メニューアイコン下のcss
+---------------------------------------------------------------------------*/
+.section-title {
+  border-bottom: 2px solid #dee7ec;
+  font-size: 28px;
+  padding-bottom: 15px;
+  margin-bottom: 50px;
+}
+.contact-form {
+  padding: 70px  20px;
+  float: center;
+}
+
+/* contact-submitのCSS */
+.contact-submit{
+  background-color:#239b76;
+  color:#fff;
+}
+
+.heading h3 {
+  font-weight: normal;
+}
+.heading a {
+  background-color: none;
+}
+
+.message-wrapper {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 80px;
+  text-align: center;
+}
+
+.message {
+  padding: 15px 40px;
+  background-color: #5dca88;
+  cursor: pointer;
+  box-shadow: 0 7px #1a7940;
+}
+
+.message:active {
+  position: relative;
+  top: 7px;
+  box-shadow: none;
+}
+
+/* footerのcss
+---------------------------------------------------------------------------*/
+footer img {
+  width: 125px;
+}
+
+footer p {
+  color: #b3aeb5;
+  font-size: 12px;
+}
+
+footer {
+  padding-top: 30px;
+  padding-bottom: 20px;
+  background-color: rgba(34, 49, 52, 0.9);
+  width: 100%;
+  /* floatを解除
+  */
+  clear:both;
+}
+/*
+---------------------------------------------------------------------------*/
+.red
+{
+   color     : #f00;
+   font-size : 12px;
+}

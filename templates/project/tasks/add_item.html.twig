@@ -1,0 +1,88 @@
+{% extends 'tasks/common/template.html.twig' %}
+{% block title %}案件管理{% endblock %}
+{% block content %}
+  <div class="contact-form">
+  <table border="1">
+    <tr>
+      <th>ID</th>
+      <th>案件名</th>
+      <th>日当</th>
+      <th>カテゴリー</th>
+      <th>削除</th>
+
+    </tr>
+    {% for value in itemData %}
+    <tr>
+      <td>
+
+          {{value.item_id}}
+      </td>
+      <td>
+      <a href="{{constant('php\\Bootstrap::ENTRY_URL')}}detail.php?item_id={{value.item_id}}">
+        {{value.item_name}}</a></td>
+      </td>
+      <td>{{value.price}}</td>
+
+      <td>{{value.ctg_id}}</td>
+      <td><a onclick="return confirm('本当に、いいんですね？')" href="{{constant('php\\Bootstrap::ENTRY_URL')}}add_item.php?item_id={{value.item_id}}&delete_flg=4">
+        削除</a></td>
+    </tr>
+  {% endfor %}
+    </table>
+    <form  method="post" action="add_item.php" enctype="multipart/form-data">
+     <table border="1px">
+     <tr>
+      <th> カテゴリー </th>
+      <td>
+      <ul>
+      {% for index, label in ctg_id %}
+      <li>
+      <input type="radio" name="ctg_id"
+             value="{{index}}" checked="checked">
+      <label for="{{index}}">{{ label }}</label>
+      </li>
+      {% endfor %}
+      </ul>
+      </td>
+     </tr>
+
+     <tr>
+      <th> 案件名 </th>
+      <td>
+       <input type="text" name="item_name" size="30" class="ws" value="{{dataArr.item_name}}"placeholder="現場名　00:00-00:00"required><br>
+
+      </td>
+     </tr>
+
+    <tr>
+     <th> 詳細 </th>
+     <td>
+      <textarea name="detail" rows="10" cols="40" class="wl" placeholder="{{guide}}" required>{{dataArr.detail}}</textarea>
+
+     </td>
+    </tr>
+    <tr>
+     <th> 日当 </th>
+     <td>
+      <input type="number" name="price" size="30" class="ws" value="{{dataArr.price}}"required>円
+     </td>
+    </tr>
+    <tr>
+     <th> 画像 (任意) </th>
+     <td>
+      <input type="file" name="image"  value="ファイルを選択してください"><br>
+      {% if errmsg | length > 0 %}<br>
+    <p><span class="red">{{errmsg}}</span><p><br>{% endif %}
+     </td>
+    </tr>
+
+   </table>
+   {% if result | length > 0 %}<br>
+ <p><span class="red">{{result}}</span><p><br>{% endif %}
+   <input type="submit" name="send" value="作成">
+   <a href="{{constant('php\\Bootstrap::ENTRY_URL')}}list.php">戻る</a><br>
+
+  </form>
+  </div>
+
+{% endblock %}

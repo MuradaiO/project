@@ -1,19 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="{{constant('php\\Bootstrap::APP_URL')}}js/common.js"></script>
-    <link href="{{constant('php\\Bootstrap::APP_URL')}}css/stylesheet.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{constant('php\\Bootstrap::APP_URL')}}css/responsive.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+{% extends 'common/template.html.twig' %}
+{% block title %}エントリーフォーム{% endblock %}
+{% block content %}
 
-    <title>エントリーフォーム</title>
-  </head>
-
-
-  <body>
-  {% include 'header.html.twig' %}
  <div class="contact-form">
   <input type="hidden" name="entry_url"
             id="entry_url" value="{{constant('php\\Bootstrap::ENTRY_URL')}}">
@@ -161,6 +149,4 @@
         </div>
       </form>
     </div>
-    {% include 'footer.html.twig' %}
-    </body>
-</html>
+{% endblock %}
