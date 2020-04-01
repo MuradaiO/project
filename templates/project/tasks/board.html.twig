@@ -2,27 +2,27 @@
 {% block title %}掲示板{% endblock %}
 {% block content %}
 
-    <div id="contents">
-    <div class="inner">
-    {% for key , value in data %}
-     <ul>
-      <li>
-       <div class="board-list-item">
-        <div class="board-user">
-           {% if value.sex == 1 %}
+<div id="contents">
+  <div class="inner">
+    <div class="main">
+      <article class="list">
+    <table  class="ta1">
+     {% for key , value in data %}
+        <ul>
+         <li　style="text-align:left;"> 
+         {% if value.sex == 1 %}
            <img src="{{constant('php\\Bootstrap::APP_URL')}}public/images/male.png" class='icon-user'>
            {% else %}
            <img src="{{constant('php\\Bootstrap::APP_URL')}}public/images/female.png" class='icon-user'>
            {% endif %}
-           <p>{{value.user_id}}</p>
-        </div>
-           <p class="board-text">{{value.contents|nl2br }}</p>
-       </div>
-       </li>
-
-      </ul>
+           </li>
+           <li>
+         <p>{{value.user_id}}  </p>
+         <h3>{{value.contents|nl2br }}</h3>
+    </table>
       {% endfor %}
-      <form method="post" action="">
+
+    <form method="post" action="">
       <table  class"ta1">
         <tr>
          <th>トークルーム</th>
@@ -38,11 +38,11 @@
         </tr>
       </table>
     </form>
-  {%if dataArr.result | length > 0 %}<p>{{dataArr.result}}</p>{% endif %}
-    {%if err_msg | length > 0 %}<p style="color:#f00;">{{err_msg}}</p>{% endif %}
+    {% if dataArr.result | length > 0 %}<p>{{dataArr.result}}</p>{% endif %}
+    {% if err_msg | length > 0 %}<p style="color:#f00;">{{err_msg}}</p>{% endif %}
     <p><a href="list.php">一覧へ戻る</a></p>
-
-
+      </article>
     </div>
   </div>
+</div>
 {% endblock %}

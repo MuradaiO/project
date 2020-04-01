@@ -18,13 +18,13 @@
           {{value.item_id}}
       </td>
       <td>
-      <a href="{{constant('php\\Bootstrap::ENTRY_URL')}}detail.php?item_id={{value.item_id}}">
+      <a href="{{constant('php\\Bootstrap::RECRUIT_URL')}}detail.php?item_id={{value.item_id}}">
         {{value.item_name}}</a></td>
       </td>
       <td>{{value.price}}</td>
 
       <td>{{value.ctg_id}}</td>
-      <td><a onclick="return confirm('本当に、いいんですね？')" href="{{constant('php\\Bootstrap::ENTRY_URL')}}add_item.php?item_id={{value.item_id}}&delete_flg=4">
+      <td><a onclick="return confirm('本当に、いいんですね？')" href="{{constant('php\\Bootstrap::RECRUIT_URL')}}add_item.php?item_id={{value.item_id}}&delete_flg=4">
         削除</a></td>
     </tr>
   {% endfor %}
@@ -80,7 +80,7 @@
    {% if result | length > 0 %}<br>
  <p><span class="red">{{result}}</span><p><br>{% endif %}
    <input type="submit" name="send" value="作成">
-   <a href="{{constant('php\\Bootstrap::ENTRY_URL')}}list.php">戻る</a><br>
+   <a href="{{constant('php\\Bootstrap::RECRUIT_URL')}}list.php">戻る</a><br>
 
   </form>
   </div>

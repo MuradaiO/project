@@ -141,7 +141,7 @@ switch ($mode) {
    $res = $mem->memberUpdate($dataArr['mem_id'], $dataArr);
    if ($res === true) {
    // 登録成功時は完成ページへ
-   header('Location: ' . Bootstrap::ENTRY_URL . 'member_list.php');
+   header('Location: ' . Bootstrap::RECRUIT_URL . 'member_list.php');
    exit();
    } else {
    // 登録失敗時は登録画面に戻る

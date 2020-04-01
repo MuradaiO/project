@@ -44,8 +44,8 @@ if(isset($_SESSION)){
 }else{
   $userData = '';
 }
-error_reporting(-1);
-ini_set('display_errors', 'On');
+//error_reporting(-1);
+//ini_set('display_errors', 'On');
 
 $context['hello'] = $hello;
 $context['userData'] = $userData;

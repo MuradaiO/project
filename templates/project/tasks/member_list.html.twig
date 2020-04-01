@@ -1,20 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="{{constant('php\\Bootstrap::APP_URL')}}js/shopping.js"></script>
-  <link href="{{constant('php\\Bootstrap::APP_URL')}}css/stylesheet.css" rel="stylesheet">
-  <link rel="stylesheet" href="{{constant('php\\Bootstrap::APP_URL')}}css/responsive.css">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-  <title>メンバーリスト</title>
-</head>
-
-<body>
-
-{% include 'header.html.twig' %}
-
+{% extends 'tasks/common/template.html.twig' %}
+{% block title %}メンバーリスト{% endblock %}
+{% block content %}
 <div class="contact-form">
   <h2 class="section-title">メンバー一覧</h2>
     <table border="1">
@@ -29,7 +15,7 @@
       {% for value in dataArr %}
       <tr>
         <td>
-          <a href="{{constant('php\\Bootstrap::ENTRY_URL')}}member_detail.php?mem_id={{value.mem_id}}">
+          <a href="{{constant('php\\Bootstrap::RECRUIT_URL')}}member_detail.php?mem_id={{value.mem_id}}">
             {{value.mem_id}}</a>
         </td>
         <td>
@@ -42,15 +28,13 @@
         <td>{% if value.sex == '1' %}男性 {% elseif value.sex == '2' %}女性{% endif %}</td>
         <td>{{value.regist_date}}</td>
         <td>
-          <a href="{{constant('php\\Bootstrap::ENTRY_URL')}}member_update.php?update={{value.mem_id}}">
+          <a href="{{constant('php\\Bootstrap::RECRUIT_URL')}}member_update.php?update={{value.mem_id}}">
             編集</a>
         </td>
       </tr>
       {% endfor %}
     </table>
-      <p><a href="{{constant('php\\Bootstrap::ENTRY_URL')}}list.php">一覧へ戻る</a></p>
+      <p><a href="{{constant('php\\Bootstrap::RECRUIT_URL')}}list.php">一覧へ戻る</a></p>
   </div>
 
-    {% include 'footer.html.twig' %}
-  </body>
-</html>
+{% endblock %}

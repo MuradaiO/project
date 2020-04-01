@@ -5,7 +5,7 @@
 <div class="contact-form">
  <input type="hidden" name="entry_url"
            id="entry_url" value="{{constant('php\\Bootstrap::ENTRY_URL')}}">
-   <form method="post" action="confirm.php">
+   <form method="post" action="{{constant('php\\Bootstrap::ENTRY_URL')}}confirm.php">
     <h2 class="section-title">変更点があれば記入ください</h2>
      <table>
        <tr>
@@ -148,7 +148,7 @@
      </table>
 
        <div>
-         <input type="submit" name="update" value="変更する"><a class="btn grey" href="member_list.php">一覧へ戻る</a>
+         <input type="submit" name="update" value="変更する"><a class="btn grey" href="/recruit/member_list.php">一覧へ戻る</a>
        </div>
      </form>
    </div>
