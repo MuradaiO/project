@@ -9,7 +9,7 @@ require_once('Common.class.php');
 
 class Mail
 {
-  private static $to ='suteado.tamokuteki@gmail.com';
+  private static $to ='yuki.bigvillage@gmail.com';
   public $session_key = '';
   public $db = NULL;
 
