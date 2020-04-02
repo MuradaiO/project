@@ -3,7 +3,7 @@
  *ファイルパス/Application/MAMP/htdocs/DT/member/master/initMaster.class.php
  *ファイル名　initMaster.class.php
  */
-namespace php\master;
+namespace app\model;
 class initMaster
 {
   public static function getDate()

@@ -3,18 +3,18 @@ namespace php;
 require_once dirname(__FILE__) . '/Bootstrap.class.php';
 
 use php\Bootstrap;
-use php\lib\PDODatabase;
-use php\lib\Database;
+use app\model\PDODatabase;
+use app\model\Database;
 
-use php\lib\Mail;
-use php\lib\Recruit;
+use app\model\Mail;
+use app\model\Recruit;
 
-use php\lib\Session;
-use php\lib\Cart;
-use php\lib\Item;
-use php\lib\Common;
-use php\lib\Member;
-use php\master\initMaster;
+use app\model\Session;
+use app\model\Cart;
+use app\model\Item;
+use app\model\Common;
+use app\model\Member;
+use app\model\initMaster;
 
 
 $db = new PDODatabase(Bootstrap::DB_HOST, Bootstrap::DB_USER,
@@ -44,8 +44,8 @@ if(isset($_SESSION)){
 }else{
   $userData = '';
 }
-//error_reporting(-1);
-//ini_set('display_errors', 'On');
+error_reporting(-1);
+ini_set('display_errors', 'On');
 
 $context['hello'] = $hello;
 $context['userData'] = $userData;

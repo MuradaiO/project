@@ -3,7 +3,7 @@
  *ファイルパス　/Applications/MAMP/htdocs/project/php/Item.class.php
  *ファイル名　Item.class.php (商品に関するプログラムのクラスファイル、Model)
  */
-namespace php\lib;
+namespace app\model;
 
 class Item
 {

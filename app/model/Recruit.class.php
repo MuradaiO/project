@@ -4,7 +4,7 @@
  *ファイル名　entry.class.php (entry関係のクラスファイル、Model)
  *
  */
-namespace php\lib;
+namespace app\model;
 require_once('Mail.class.php');
 
 class Recruit extends Mail

@@ -6,7 +6,7 @@
  *
  */
 
-namespace php\lib;
+namespace app\model;
 
 class PDODatabase
 {

@@ -5,7 +5,7 @@
  *セッション　サーバー側に一時的にデータを保存する仕組みのこと
  *基本的に、keyで判断をして、IDを取るというのが流れ
  */
-namespace php\lib;
+namespace app\model;
 class Session
 {
   public $session_key = '';

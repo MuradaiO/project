@@ -4,7 +4,7 @@
  *ファイル名　mail.class.php (mail関係のクラスファイル、Model)
  *
  */
-namespace php\lib;
+namespace app\model;
 require_once('Common.class.php');
 
 class Mail

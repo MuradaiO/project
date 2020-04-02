@@ -3,7 +3,7 @@
  *ファイルパス　/Applications/MAMP/htdocs/project/php/lib/Member.class.php
  *ファイル名　Member.class.php (メンバーに関するプログラムのクラスファイル、Model)
  */
-namespace php\lib;
+namespace app\model;
 
 class Member
 {

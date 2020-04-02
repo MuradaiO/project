@@ -1,0 +1,2 @@
+[SQL_LOG:2020-04-02 15:18:00]:  SELECT  ctg_id, category_name  FROM  category  []
+[SQL_LOG:2020-04-02 15:18:00]:  SELECT  item_id, item_name, price, image, ctg_id  FROM  item  WHERE  NOT delete_flg = ? [4]

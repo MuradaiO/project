@@ -3,7 +3,7 @@
 * ファイルパス：_/Applications/MAMP/htdocs/project/php/Cart.class.php
 * ファイル名：Cart.class.php (カートに関するプログラムのクラスファイル、Model)
 */
-namespace php\lib;
+namespace app\model;
 class Cart
 {
   private $db = null;

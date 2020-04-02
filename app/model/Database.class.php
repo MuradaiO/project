@@ -3,7 +3,7 @@
 * ファイルパス：/Applications/MAMP/htdocs/project/php/Database.class.php
 * ファイル名：Database.class.php
 */
-namespace php\lib;
+namespace app\model;
 class Database
 {
   public $db_con = null;

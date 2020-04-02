@@ -10713,3 +10713,5 @@
 [SQL_LOG:2020-04-02 15:09:08]:  SELECT  item_id, item_name, price, image, ctg_id  FROM  item  WHERE  NOT delete_flg = ? [4]
 [SQL_LOG:2020-04-02 15:09:13]:  SELECT  ctg_id, category_name  FROM  category  []
 [SQL_LOG:2020-04-02 15:09:13]:  SELECT  item_id, item_name, price, image, ctg_id  FROM  item  WHERE  NOT delete_flg = ? [4]
+[SQL_LOG:2020-04-02 15:12:38]:  SELECT  ctg_id, category_name  FROM  category  []
+[SQL_LOG:2020-04-02 15:12:38]:  SELECT  item_id, item_name, price, image, ctg_id  FROM  item  WHERE  NOT delete_flg = ? [4]

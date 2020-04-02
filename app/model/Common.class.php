@@ -3,7 +3,7 @@
 * ファイルパス：/Applications/MAMP/htdocs/project/php/Common.class.php
 * ファイル名：Common.php
 */
-namespace php\lib;
+namespace app\model;
 class Common
 {
   private $dataArr = [];
