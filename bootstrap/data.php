@@ -16,6 +16,8 @@ use app\model\Common;
 use app\model\Member;
 use app\model\initMaster;
 
+error_reporting(-1);
+ini_set('display_errors', 'On');
 
 $db = new PDODatabase(Bootstrap::DB_HOST, Bootstrap::DB_USER,
  Bootstrap::DB_PASS, Bootstrap::DB_NAME, Bootstrap::DB_TYPE);
@@ -44,8 +46,7 @@ if(isset($_SESSION)){
 }else{
   $userData = '';
 }
-error_reporting(-1);
-ini_set('display_errors', 'On');
+
 
 $context['hello'] = $hello;
 $context['userData'] = $userData;

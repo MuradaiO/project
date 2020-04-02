@@ -4,7 +4,7 @@
 * ファイル名：postcode_search.php
 */
 namespace php;
-require_once ('../../data.php');
+require_once ('../../bootstrap/data.php');
 
 if (isset($_GET['zip1']) === true && isset($_GET['zip2']) === true) {
   $zip1 = $_GET['zip1'];

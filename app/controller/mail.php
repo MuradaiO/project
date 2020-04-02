@@ -50,7 +50,7 @@ switch ($mode) {
 
 }
 
-var_dump($dataArr);
+//var_dump($dataArr);
 
 
 $context['dataArr'] = $dataArr;

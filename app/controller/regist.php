@@ -8,7 +8,7 @@ namespace php;
 
 
 require_once ('../../bootstrap/data.php');
-use php\master\initMaster;
+use app\model\initMaster;
 
 // 初期データを設定
 $dataArr = initMaster::getRegistArr();

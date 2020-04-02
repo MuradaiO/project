@@ -13,12 +13,8 @@ MAMP環境で作成しました
 
 # Instlation
 
-twigのインストール
-vender.zipの解答もしくは、
 
-　composer.json(添付ファイル)
-C:\xampp\htdocs\project配下に保存(格納)してください。
-Macの方は、Applications/MAMP/htdocs/project配下。
+TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"';
 
 
 ●ライブラリのインストール
@@ -28,6 +24,7 @@ Macの方は、Applications/MAMP/htdocs/project配下。
 
 データベースの構築
 database_create.txt データベース構築に関わるSQL文をご使用ください。
+LOAD DATA INFILE '/Applications/MAMP/htdocs/project/ken-all.csv' INTO TABLE `postcode` FIELDS 
 
 メール設定
 mail.class.php のprivate sttatic $to = ''に値を入れることでメール受信者を設定できます

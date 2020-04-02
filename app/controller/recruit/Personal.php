@@ -36,7 +36,7 @@ $template = '/tasks/personal.html.twig';
 
 
 
- $context = [];
+
  $context['result'] = $resArr;
  $context['dataArr'] = $dataArr;
 
